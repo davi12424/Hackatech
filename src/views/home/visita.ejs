@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sitezin</title>
+</head>
+<body>
+    <h1>Agendamento de Visita</h1>
+
+    <form method="POST" action="/cadastrovisitas">
+        <div>
+            <label>
+                <strong>Nome:</strong>
+                <br>
+                <input name="nome" type="text">
+            </label>
+        </div>
+
+        <div>
+            <label>
+                <strong>Contato:</strong>
+                <br>
+                <em><ins>Telefone</ins>:</em><input name="cel" type="tel">
+                <br>
+                <em><ins>E-mail</ins>:</em><input name="email" type="email">
+            </label>
+        </div>
+
+
+        <div>
+            
+            <label>
+                    <strong>Instituição</strong>
+                    <br>
+                    <select name="instituicao" id="">
+                        <option selected disabled>Selecione uma Instituição</option>
+                        <option value="">1</option>
+                        <option value="">2</option>
+                    </select>
+
+
+            </label>
+    
+    
+        </div>
+        <button>Enviar respostas.</button>
+    </form>
+</body>
+</html>

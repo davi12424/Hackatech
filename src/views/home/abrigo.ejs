@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sitezin</title>
+</head>
+<body>
+    <h1>Cadastro de Instituição</h1>
+
+    <form method="POST" action="/cadabrigo">
+        <div>
+            <label>
+                <strong>Nome do Asilo</strong>
+                <br>
+                <input name="nome" type="text">
+            </label>
+        </div>
+
+        <div>
+            <label>
+                <strong>Local:</strong>
+                <br>
+                <input name="endereco" type="text">
+            </label>
+        </div>
+
+        <div>
+            <label>
+                <strong>Contato:</strong><br>
+                <em><ins>Telefone</ins>:</em><input name="cel" type="tel"><br>
+                <em><ins>E-mail</ins>:</em><input name="mail" type="email">
+            </label>
+        </div>
+
+        <a href="http://localhost:9444/datas/novo" target="_self"><button>Enviar respostas</button></a>
+    </form>
+</body>
+</html>
