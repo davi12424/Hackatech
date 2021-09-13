@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/css/user.css" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" href="../../../public/favicon.ico" type="image/x-icon">
     <title>Sitezin</title>
 </head>
 <body>
@@ -24,7 +26,8 @@
                 <br>
                 <em><ins>Telefone</ins>:</em><input name="cel" type="tel">
                 <br>
-                <em><ins>E-mail</ins>:</em><input name="email" type="email">
+                <em><ins>E-mail</ins>:</em><input name="email" type="email"><br>
+                <em><ins>Data e Hora</ins>:</em><input name="horario" type="datetime-local">
             </label>
         </div>
 
@@ -34,11 +37,7 @@
             <label>
                     <strong>Instituição</strong>
                     <br>
-                    <select name="instituicao" id="">
-                        <option selected disabled>Selecione uma Instituição</option>
-                        <option value="">1</option>
-                        <option value="">2</option>
-                    </select>
+                    <input type="text" name="instituicao">
 
 
             </label>

@@ -26,6 +26,9 @@ const schemaVisita = new mongoose.Schema({
 
         type: String,
     },
+    horario:{
+        type: String,
+    },
 
     
 })

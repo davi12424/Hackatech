@@ -1,11 +1,8 @@
 const express = require('express')
 const path = require('path')
 const mongoose = require('mongoose')
-const CadAbrigo = require('./schemasabrig/cadabrigo')
-const DataeHora = require('./schemasabrig/data')
-const data = require('./schemasabrig/data')
+const cadAbrigo = require('./schemasabrig/cadabrigo')
 const cadagend = require('./schemaagend/cadagend')
-const horariosagenda = require('./schemaagend/horariosagenda')
 require('dotenv').config()
 
 
@@ -13,7 +10,7 @@ const conectarAoBancoDeDados = async () => {
     const Cadastro = process.env.MONGODB_DATABASE_NAME
     const usuarioMongo = process.env.MONGODB_USER
     const senhaMongo = process.env.MONGODB_PASSWORD
-    await mongoose.connect(`mongodb+srv://${usuarioMongo}:${senhaMongo}@cluster0.eu69u.mongodb.net/${Cadastro}?retryWrites=true&w=majority`)
+    await mongoose.connect(`mongodb+srv://${usuarioMongo}:${senhaMongo}@cluster0.8qo3w.mongodb.net/${Cadastro}?retryWrites=true&w=majority`)
 }
 
 const bootstrap = async () => {
@@ -21,6 +18,8 @@ const bootstrap = async () => {
     await conectarAoBancoDeDados()
 
     const app = express()
+
+    app.use(express.static('public'))
 
     app.use(express.urlencoded({ extended: true }))
 
@@ -38,40 +37,31 @@ const bootstrap = async () => {
         app.get('/cadvisita', (request, response) => {
             return response.render('home/visita.ejs')
         })
+
+        app.get('/sobre', (request, response) => {
+            return response.render('home/sobre.ejs')
+        })
+
         app.get('/cadabrigo', async (request, response) => {
-            const entidades = await CadAbrigo.find()
+            const entidades = await cadAbrigo.find()
 
             
             return response.render(entidades)
         })
 
-    app.post('/cadabrigo', async (request, response) => {
-        const { nome, endereco, cel, mail, obs } = request.body
-
-        const entidade = new CadAbrigo({nome, endereco, cel, mail, obs})
-        await entidade.save()
-
-        const emailExiste = await CadAbrigo.findOne({mail}) 
-        if (emailExiste) {
-            return response.redirect('/cadabrigo')
-        }
-        const celExiste = await CadAbrigo.findOne({cel})
-        if (celExiste) {
-            return response.redirect('/cadabrigo')
-        }
-
-        return response.redirect('/cadabrigo')
-    })
+        app.post('/cadabrigo', async (request, response) => {
+            const {nome, endereco, cel, mail, obs } = request.body
     
-        app.get('/datas', async (request, response) => {
-        const datas = await data.find()
-        return response.render('datas.ejs', {datas})
-
-    })
-
-        app.get('/datas/novo', async (request, response) => {
-             return response.render('novas-datas.ejs')
-
+            const entidade = new cadAbrigo({nome, endereco, cel, mail, obs})
+            await entidade.save()
+    
+            let idInstituicao = entidade.get('_id')
+    
+    
+            urlIdInstituicao = '/datas/novo?id='+ idInstituicao
+    
+            return response.redirect('/datas/novo?id='+ idInstituicao)
+        
     })
 
     app.post('/datas', async (request, response) => {
@@ -84,51 +74,31 @@ const bootstrap = async () => {
         return response.redirect('/datas')
     })
 
-
-
-
-
-    app.get('/cadvisita', async (request, response) => {
+    app.get('/cadvisitacompleta', async (request, response) => {
+        console.log('aqui5')
         const entidades = await cadagend.find()
-
+        console.log('aqui6')
         
-        return response.render(entidades)
+        //return response.render(entidades)
+        //return response.redirect('/datas')
+        return response.render('dadosvisita.ejs', {entidades})
 
     })
 
     app.post('/cadastrovisitas', async (request, response) => {
-        const { nome, cel, email, instituicao} = request.body
-
-        
-        const entidade = new cadagend({nome, cel, email, instituicao })
+        console.log('aqui1')
+        const { nome, cel, email, instituicao, horario } = request.body
+        console.log('aqui2')
+        const entidade = new cadagend({nome, cel, email, instituicao, horario})
+        console.log('aqui3')
         await entidade.save()
+        console.log('aqui4')
 
-        return response.redirect('/cadagendacompleto')
+        return response.redirect('/cadvisitacompleta')
     })
 
-    app.get('/escolhadedatas', async (request, response) => {
-        const escolhadedatas = await horariosagenda.find()
-        return response.render('datas.ejs', {escolhadedatas})
-
-    })
-
-    app.post('/agendamentodedatas', async (request, response) => {
-        const { diavisita, horavisita} = request.body
-
-        
-        const entidade = new horariosagenda({diavisita, horavisita })
-        await entidade.save()
-
-        return response.redirect('/agendamentodedatas')
-    })
-
-
-
-
-
-
-    app.listen(9444, () => {
-        console.log('Site rodando em http://localhost:9444')
+    app.listen(2900, () => {
+        console.log('Site rodando em http://localhost:2900')
     })
 }
 
