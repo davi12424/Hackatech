@@ -1,6 +1,6 @@
 # Hackatech
 
-  Eu e Thiago desenvolvemos este site (em desenvolvimento ainda) com o intuito de incentivar e facilitar o agendamento de visitas a asilos, casas para idosos ou abrigos,
+  Eu e Thiago desenvolvemos este site (em desenvolvimento ainda), Giovanna e Amanda fizeram o design, Guilherme um pouco de business, com o intuito de incentivar e facilitar o agendamento de visitas a asilos, casas para idosos ou abrigos,
 visto que na sociedade futurista vivida atualmente em Technópolis, seres humanos diminuíram seus laços pessoais por causa de tantos avanços tecnológicos.
 
   Em contrapartida, ainda há aquelas pessoas que cuidam umas das outras, fazem doações e são voluntárias. Visando isso, decidimos criar um facilitador para elas, criando
