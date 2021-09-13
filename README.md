@@ -1,7 +1,6 @@
 # Hackatech
 
-  Eu e Thiago desenvolvemos este site (em desenvolvimento ainda), Giovanna e Amanda fizeram o design, Guilherme um pouco de business, com o intuito de incentivar e facilitar o agendamento de visitas a asilos, casas para idosos ou abrigos,
-visto que na sociedade futurista vivida atualmente em Technópolis, seres humanos diminuíram seus laços pessoais por causa de tantos avanços tecnológicos.
+  <strong>Eu (Davi)</strong> e <strong>Thiago</strong> desenvolvemos este site (em desenvolvimento ainda), <strong>Giovanna</strong> e <strong>Amanda</strong> fizeram o design, <strong>Guilherme</strong> um pouco de business, com o intuito de incentivar e facilitar o agendamento de visitas a asilos, casas para idosos ou abrigos, visto que na sociedade futurista vivida atualmente em Technópolis, seres humanos diminuíram seus laços pessoais por causa de tantos avanços tecnológicos.
 
   Em contrapartida, ainda há aquelas pessoas que cuidam umas das outras, fazem doações e são voluntárias. Visando isso, decidimos criar um facilitador para elas, criando
 um site, primordialmente chamado de "Amor Compartilhado" (passível de mudanças), para que os mesmos transbordem seu amor e tempo com quem mais necessita: o idoso.
